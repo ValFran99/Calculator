@@ -5,9 +5,98 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: fit-content;
+  overflow-x: hidden;
+  background-color: aquamarine;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*{
+  /* border: 1px solid black; */
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.App{
+  width: 350px;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  border: 1px solid black;
+}
+
+#display{
+  width: 100%;
+  height: fit-content;
+  /* border: 1px solid black; */
+  text-align: right;
+}
+
+.fullFormula{
+  width: 100%;
+  min-height: 35px;
+  height: fit-content;
+  /* border: 1px solid black; */
+  word-wrap: break-word;
+}
+
+.nowInput{
+  font-size: 30px;
+  width: 100%;
+  height: fit-content;
+  /* border: 1px solid black; */
+  word-wrap: break-word;
+}
+
+.keypad{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.key{
+  width: 87.5px;
+  height: 80px;
+  /* max-width: 87.5px;
+  max-height: 80px;
+  min-width: 87.5px;
+  min-height: 80px; */
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 25px;
+  font-size: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.key:hover{
+  border: 1px solid white;
+  color: white;
+}
+
+#clear, #zero, #equals{
+  width: 175px;
+}
+/* 
+#equals{
+  height: 160px;
+} */
