@@ -15,7 +15,7 @@ class KeyPad extends React.Component {
         <Key keyValue="7" keyId="seven" clickHandler={this.props.clickHandler}/>
         <Key keyValue="8" keyId="eight" clickHandler={this.props.clickHandler}/>
         <Key keyValue="9" keyId="nine" clickHandler={this.props.clickHandler}/>
-        <Key keyValue="-" keyId="substract" clickHandler={this.props.clickHandler}/>
+        <Key keyValue="-" keyId="subtract" clickHandler={this.props.clickHandler}/>
         <Key keyValue="4" keyId="four" clickHandler={this.props.clickHandler}/>
         <Key keyValue="5" keyId="five" clickHandler={this.props.clickHandler}/>
         <Key keyValue="6" keyId="six" clickHandler={this.props.clickHandler}/>

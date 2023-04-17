@@ -35,7 +35,7 @@ code {
   border: 1px solid black;
 }
 
-#display{
+.display-container{
   width: 100%;
   height: fit-content;
   /* border: 1px solid black; */
@@ -50,7 +50,7 @@ code {
   word-wrap: break-word;
 }
 
-.nowInput{
+#display{
   font-size: 30px;
   width: 100%;
   height: fit-content;

@@ -1,10 +1,10 @@
 function Display(props){
   return(
-    <div id="display">
+    <div className="display-container">
       <div className="fullFormula">
         {props.displayFormula}
       </div>
-      <div className="nowInput">
+      <div className="nowInput" id="display">
         {props.displayInput}
       </div>
     </div>
