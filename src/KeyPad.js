@@ -8,7 +8,7 @@ class KeyPad extends React.Component {
 
   render(){
     return(
-      <div className="keypad" disabled={this.props.disabled}>
+      <div className="keypad">
         <Key keyValue="AC" keyId="clear" clickHandler={this.props.clickHandler}/>
         <Key keyValue="/" keyId="divide" clickHandler={this.props.clickHandler}/>
         <Key keyValue="*" keyId="multiply" clickHandler={this.props.clickHandler}/>

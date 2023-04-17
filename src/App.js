@@ -9,7 +9,6 @@ class App extends React.Component {
     this.state = {
       fullFormula: "",
       nowInput: "0",
-      disableKeypad: false,
       nowOperator: ""
     };
     this.handleClick = this.handleClick.bind(this);
@@ -103,14 +102,22 @@ class App extends React.Component {
         break;
       
       default:
-        if(this.state.nowInput === "0"|| this.state.nowOperator === "+" || this.state.nowOperator === "*" ||
+        if(this.state.nowOperator === "+" || this.state.nowOperator === "*" ||
         this.state.nowOperator === "-" || this.state.nowOperator === "/" || this.state.nowOperator.includes("-")){
-          console.log("Entered this case")
           this.setState({
-            nowInput: "" + keyValue,
+            nowInput: keyValue,
             fullFormula: this.state.fullFormula + this.state.nowOperator + keyValue,
             nowOperator: ""
           });
+          break;
+        }
+        if(this.state.nowInput === "0"){
+          console.log("In here");
+          this.setState({
+            nowInput: keyValue,
+            fullFormula: this.state.fullFormula.slice(0, -1) + keyValue,
+            nowOperator: ""
+          })
           break;
         }
         this.setState({
@@ -126,7 +133,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Display displayFormula={this.state.fullFormula + this.state.nowOperator} displayInput={this.state.nowInput + this.state.nowOperator}/>
-        <KeyPad clickHandler={this.handleClick} disabled={this.state.disableKeypad}/>
+        <KeyPad clickHandler={this.handleClick}/>
       </div>
     );
   }
