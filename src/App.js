@@ -19,19 +19,17 @@ class App extends React.Component {
   }
 
   computeResult(){
-    var numbersArr = this.state.fullFormula.match(/(\d+)\.?(\d+)?/g);
+    var numbersArr = this.state.fullFormula.match(/^(\-)(\d+)?|(\d+)\.?(\d+)?/g);
     var actualNumbers = numbersArr.map(number => number.includes(".")? parseFloat(number) : parseInt(number));
     var result = actualNumbers.shift();
+
     while(actualNumbers.length > 0){
-      console.log(actualNumbers);
       var operator = this.state.operatorStack.shift();
       var num2 = actualNumbers.shift();
 
       switch(operator){
         case "+":
-          console.log(num2);
           result += num2;
-          console.log(result);
           break;
         case "-":
           result -= num2;
@@ -56,7 +54,6 @@ class App extends React.Component {
           break;
       }
     }
-    console.log(result);
     return result.toString();
   }
 
@@ -65,7 +62,7 @@ class App extends React.Component {
       return undefined;
     }
 
-    if(this.state.result !== ""){
+    if(this.state.result !== "" && this.state.operatorStack.length === 0){
       this.setState({
         fullFormula: this.state.result
       })
@@ -130,7 +127,7 @@ class App extends React.Component {
 
       case ".":
 
-        if(this.state.result != "" && this.state.nowOperator === ""){
+        if(this.state.result !== "" && this.state.nowOperator === "" && this.state.operatorStack.length === 0){
           this.setState({
             fullFormula: "0" + keyValue,
             result: "",
@@ -168,6 +165,17 @@ class App extends React.Component {
         if(this.state.nowInput === "0"){
           break;
         }
+
+        if(this.state.nowOperator !== ""){
+          this.state.operatorStack.push(this.state.nowOperator);
+          this.setState({
+            nowInput: this.state.nowInput + keyValue,
+            fullFormula: this.state.fullFormula + this.state.nowOperator + keyValue,
+            nowOperator: ""
+          })
+          break;
+        }
+
         this.setState({
           nowInput: this.state.nowInput + keyValue,
           fullFormula: this.state.fullFormula + this.state.nowOperator + keyValue,
@@ -176,7 +184,6 @@ class App extends React.Component {
         break;
 
       case "=":
-        // Primero hay que calcular el resultado, debería llamar a un método que lo haga
         if(this.state.fullFormula.includes(keyValue)){
           break;
         }
@@ -209,7 +216,7 @@ class App extends React.Component {
           break;
         }
         
-        if(this.state.nowInput === "0"){
+        if(this.state.nowInput === "0" && this.state.result === ""){
           this.setState({
             nowInput: keyValue,
             fullFormula: this.state.fullFormula.slice(0, -1) + keyValue,
@@ -219,18 +226,7 @@ class App extends React.Component {
           break;
         }
 
-        // if(this.state.nowOperator === "="){
-        //   this.setState({
-        //     nowInput: keyValue,
-        //     fullFormula: keyValue,
-        //     nowOperator: ""
-        //   });
-        //   this.state.operatorStack.length = 0;
-        //   console.log(this.state.operatorStack);
-        //   break;
-        // }
-
-        if(this.state.result != ""){
+        if(this.state.result !== "" && this.state.operatorStack.length === 0){
           this.setState({
             fullFormula: "" + keyValue,
             result: "",
