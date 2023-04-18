@@ -8,16 +8,13 @@ body {
   width: 100vw;
   height: fit-content;
   overflow-x: hidden;
-  background-color: aquamarine;
+  background: rgb(208,187,187);
+  background: linear-gradient(146deg, rgba(208,187,187,1) 0%, rgba(235,224,224,1) 20%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-*{
-  /* border: 1px solid black; */
 }
 
 #root{
@@ -33,13 +30,16 @@ code {
   margin-top: 20vh;
   margin-bottom: 20vh;
   border: 1px solid black;
+  border-radius: 5px;
+  font-family: Crimsom Text;
 }
 
 .display-container{
   width: 100%;
   height: fit-content;
-  /* border: 1px solid black; */
+  background-color: black;
   text-align: right;
+  border-radius: 5px 5px 0 0;
 }
 
 .fullFormula{
@@ -48,14 +48,16 @@ code {
   height: fit-content;
   /* border: 1px solid black; */
   word-wrap: break-word;
+  color: white;
 }
 
 #display{
   font-size: 30px;
   width: 100%;
   height: fit-content;
-  /* border: 1px solid black; */
+  /* background-color: black; */
   word-wrap: break-word;
+  color: orange;
 }
 
 .keypad{
@@ -64,15 +66,12 @@ code {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  background-color: grey;
 }
 
 .key{
   width: 87.5px;
   height: 80px;
-  /* max-width: 87.5px;
-  max-height: 80px;
-  min-width: 87.5px;
-  min-height: 80px; */
   box-sizing: border-box;
   text-align: center;
   padding-top: 25px;
@@ -95,8 +94,20 @@ code {
 
 #clear, #zero, #equals{
   width: 175px;
+  background-color: red;
+  color: white;
 }
-/* 
-#equals{
-  height: 160px;
-} */
+
+#add, #subtract, #multiply, #divide, #decimal{
+  background-color: rgb(59, 57, 57);
+  color: white;
+}
+
+#clear:hover, #zero:hover, #equals:hover{
+  width: 175px;
+  color: black;
+}
+
+#add:hover, #subtract:hover, #multiply:hover, #divide:hover, #decimal:hover{
+  color: black;
+}

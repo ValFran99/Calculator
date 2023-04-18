@@ -4,6 +4,74 @@ import Key from "./Key";
 class KeyPad extends React.Component {
   constructor(props){
     super(props);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  handleKeyDown(event){
+
+    switch(event.key){
+      case "1":
+        this.props.clickHandler("1")
+        break;
+      case "2":
+        this.props.clickHandler("2")
+        break;
+      case "3":
+        this.props.clickHandler("3")
+        break;
+      case "4":
+        this.props.clickHandler("4")
+        break;
+      case "5":
+        this.props.clickHandler("5")
+        break;
+      case "6":
+        this.props.clickHandler("6")
+        break;
+      case "7":
+        this.props.clickHandler("7")
+        break;
+      case "8":
+        this.props.clickHandler("8")
+        break;
+      case "9":
+        this.props.clickHandler("9")
+        break;
+      case "0":
+        this.props.clickHandler("0")
+        break;
+      case "/":
+        this.props.clickHandler("/")
+        break;
+      case "*":
+        this.props.clickHandler("*")
+        break;
+      case "-":
+        this.props.clickHandler("-")
+        break;
+      case "+":
+        this.props.clickHandler("+")
+        break;
+      case ".":
+        this.props.clickHandler(".")
+        break;
+      case "Enter":
+        this.props.clickHandler("=")
+        break;
+      case "Backspace":
+        this.props.clickHandler("AC")
+        break;
+      default:
+        break;
+    }
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.handleKeyDown)
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.handleKeyDown)
   }
 
   render(){
